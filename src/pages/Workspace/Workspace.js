@@ -32,7 +32,7 @@ const Workspace = () => {
 
   const getRegisteredUserDetail = () => {
     Axios
-    .get(`https://employee-management-system-111-default-rtdb.firebaseio.com/user.json?orderBy="userEmail"&equalTo="${currentUser.email}"&print="pretty"`)
+    .get(`https://employee-management-system-121-default-rtdb.firebaseio.com/user.json?orderBy="userEmail"&equalTo="${currentUser.email}"&print="pretty"`)
     .then((response) => {
       setRegisterUser(response.data)
       if(Object.keys(response.data).length) {
@@ -46,7 +46,7 @@ const Workspace = () => {
   const handleAddPostData = (e) => {
     // if user wants to edit then put request is used
     Axios.post(
-      `https://employee-management-system-111-default-rtdb.firebaseio.com/workspace.json`,
+      `https://employee-management-system-121-default-rtdb.firebaseio.com/workspace.json`,
       {
         email: postEmail,
         message: postDescription,
@@ -65,7 +65,7 @@ const Workspace = () => {
 
   const getPostData = (email) => {
     Axios
-    .get(`https://employee-management-system-111-default-rtdb.firebaseio.com/workspace.json`)
+    .get(`https://employee-management-system-121-default-rtdb.firebaseio.com/workspace.json`)
     .then((response) => {
       setPostData(response.data);
     })

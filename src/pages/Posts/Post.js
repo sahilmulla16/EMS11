@@ -62,7 +62,7 @@ function Post(props) {
 
   const getRegisteredUserDetail = () => {
     Axios
-      .get(`https://employee-management-system-111-default-rtdb.firebaseio.com/user.json?orderBy="userEmail"&equalTo="${currentUser.email}"&print="pretty"`)
+      .get(`https://employee-management-system-121-default-rtdb.firebaseio.com/user.json?orderBy="userEmail"&equalTo="${currentUser.email}"&print="pretty"`)
       .then((response) => {
         setRegisterUser(response.data)
         if (Object.keys(response.data).length) {
@@ -74,7 +74,7 @@ function Post(props) {
 
   const getPostData = (email) => {
     Axios
-      .get(`https://employee-management-system-111-default-rtdb.firebaseio.com/Task/${userId}.json`)
+      .get(`https://employee-management-system-121-default-rtdb.firebaseio.com/Task/${userId}.json`)
       .then((response) => {
         setPostData(response.data)
         // setPostData(Object.entries(response.data).filter((e)=>(e.user === email)));
@@ -93,7 +93,7 @@ function Post(props) {
       // if user wants to edit then put request is used
       if (editDetails) {
         Axios
-          .put(`https://employee-management-system-111-default-rtdb.firebaseio.com/Task/${userId}/${postId}.json`,
+          .put(`https://employee-management-system-121-default-rtdb.firebaseio.com/Task/${userId}/${postId}.json`,
             {
               postName: postName === "" ? postTitle : postName,
               postDetail: postDetail === "" ? postDescription : postDetail,
@@ -110,7 +110,7 @@ function Post(props) {
       //  if user wants to add a new card
       else {
         Axios
-          .post(`https://employee-management-system-111-default-rtdb.firebaseio.com/Task/${userId}.json`,
+          .post(`https://employee-management-system-121-default-rtdb.firebaseio.com/Task/${userId}.json`,
             {
               postName: postName,
               postDetail: postDetail,
@@ -163,7 +163,7 @@ function Post(props) {
   const handleDelete = (postId, e) => {
     if (window.confirm("Are you sure you want to delete the Post?")) {
       Axios
-        .delete(`https://employee-management-system-111-default-rtdb.firebaseio.com/Task/${userId}/${postId}.json`)
+        .delete(`https://employee-management-system-121-default-rtdb.firebaseio.com/Task/${userId}/${postId}.json`)
         .then((response) => {
           alert("post deleted succesfully");
           setIsPostDelete(true);
